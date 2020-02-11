@@ -16,16 +16,17 @@ h1 {
   color: white;
 }
 
-.strips .strip__content:before {
+.strip .strip__content:before {
   content: "";
   position: absolute;
-  z-index: 1;
+  /*     z-index:1;
+   */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: white;
-  opacity: 0.05;
+  background: black;
+  opacity: 0.8;
   -webkit-transform-origin: center center;
   transform-origin: center center;
   -webkit-transform: skew(30deg) scaleY(1) translate(0, 0);
