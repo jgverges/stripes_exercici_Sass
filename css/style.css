@@ -1,12 +1,19 @@
 body {
   padding: 0;
-  margin: 5px 0 0 0;
-  Blockfont-family: "Lato";
+  margin: 8px 0 0 0;
+  font-family: "Lato";
 }
 
 h1 {
   font-size: 3.5vw;
   font-weight: 300;
+}
+
+.strips {
+  min-height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  color: white;
 }
 
 .strips .strip__content:before {

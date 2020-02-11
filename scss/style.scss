@@ -1,18 +1,20 @@
-
-$Block1:  #244F75;
-$Block2:  #60BFBF;
-$Block3:  #8C4B7E;
-$Block4:  #F8BB44;
-$Block5:  #F24B4B;
+@import 'colors';
 
 body{
     padding:0;
-    margin:5px 0 0 0;Blockfont-family: 'Lato';
+    margin:8px 0 0 0;
+    font-family: 'Lato';
 }
 h1{
     font-size: 3.5vw;
     font-weight: 300;
 
+}
+.strips {
+  min-height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  color: white;
 }
 @mixin block($color){
     background-color:$color;
