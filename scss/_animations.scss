@@ -1,0 +1,33 @@
+$x:-100%;
+$y:0;
+@function call($x){
+    @return Sx + 1000px;
+}
+#block1 {
+    $x:100%;
+    animation-name: stripAnimation;
+    animation-duration: 3s;
+} 
+#block5 {
+    $x:call ($x);
+
+    animation-name: stripAnimation;
+    animation-duration: 3s;
+    //animation-direction: reverse;
+} 
+@function transF($x,$y){
+    @return translate3d(#{$x},#{$y}, 0);
+}
+
+@keyframes stripAnimation {
+    0% {
+      -webkit-transform: transF($x,$y);
+              transform: transF($x,$y);
+    }
+    100% {
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+}
+
+//animation-direction: reverse;  ??
