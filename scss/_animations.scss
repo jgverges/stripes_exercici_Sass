@@ -1,33 +1,39 @@
-$x:-100%;
-$y:0;
-@function call($x){
-    @return Sx + 1000px;
+@mixin keyframes($x,$y){
+    0% {
+        -webkit-transform: translate3d (#{$x},#{$y}, 0);
+                transform: translate3d(-100%, 0, 0);
+      }
 }
+
+.bunny {
+    animation: hop 2s ease-in-out infinite, 
+               move 6s ease-out forwards;
+  
+    @keyframes hop { 
+      50%  { transform: translateY(40px); }
+    }
+    @keyframes move { 
+      100% { left: 400px; }
+    }
+  }
+
+
+
 #block1 {
-    $x:100%;
-    animation-name: stripAnimation;
-    animation-duration: 3s;
+    animation:rightA 2s ease-in-out infinite;
+    @include keyframes(-100,0){
+        0% {
+            -webkit-transform: translate3d (-100%,0, 0);
+                    transform: translate3d(-100%, 0, 0);
+          }
+    }
 } 
 #block5 {
-    $x:call ($x);
-
-    animation-name: stripAnimation;
-    animation-duration: 3s;
-    //animation-direction: reverse;
+    animation:leftA 2s ease-in-out infinite;
+    @keyframes leftA{
+        0% {
+            -webkit-transform: translate3d (200%,0, 0);
+                    transform: translate3d(200%, 0, 0);
+          }
+    }
 } 
-@function transF($x,$y){
-    @return translate3d(#{$x},#{$y}, 0);
-}
-
-@keyframes stripAnimation {
-    0% {
-      -webkit-transform: transF($x,$y);
-              transform: transF($x,$y);
-    }
-    100% {
-      -webkit-transform: translate3d(0, 0, 0);
-              transform: translate3d(0, 0, 0);
-    }
-}
-
-//animation-direction: reverse;  ??
