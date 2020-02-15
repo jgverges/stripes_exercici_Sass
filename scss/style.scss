@@ -1,61 +1,135 @@
-@import 'colors','animations';
-
+@import 'colors';
+*{
+    box-sizing: border-box;
+}
 body{
-    padding:0;
-    margin:8px 0 0 0;
-    font-family: 'Lato';
+    margin:10px 0 0 0;
 }
 h1{
     font-size: 3.5vw;
     font-weight: 300;
+    color:white;
+    font-family: 'Lato';
 
 }
 .strips {
-  min-height: 100vh;
-  text-align: center;
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
-  color: white;
+  text-align: center;
+  display: flex;
+  cursor:pointer;
 }
-@mixin block($color){
+.strip{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    text-align: center;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+.strip_content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        text-align: center;         
+}
+
+/* @mixin block($color){
     background-color:$color;
     color:white;
-    width: 20%;
-    height: 95vw;
+    width: 19.9% ;
+    height: 100vh;
+    float: left;
+    margin-right: 0.1%;
     display: flex;
    justify-content: center;
    align-items: center;
-   float: left;
 }
-.strip .strip__content:before {
+ */
+ .strips .strip_content:before {
     content: "";
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-/*     z-index:1;
- */    top: 0;
+    z-index: 1;
+    top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    opacity: 0.8;
+    width: 20vw;
+    height: 100vh;
+    background: white;
+    opacity: 0.05;
     -webkit-transform-origin: center center;
             transform-origin: center center;
     -webkit-transform: skew(30deg) scaleY(1) translate(0, 0);
             transform: skew(30deg) scaleY(1) translate(0, 0);
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: hidden;
   }
-  
-  
-#block1 {
-    @include block($Block1);
+  .strip_content:hover:before {
+    -webkit-transform: skew(0deg) scaleX(8) translate(0, 0);
+    transform: skew(0deg) scaleX(8) translate(0, 0);
+    opacity: 0.2;
+
+  }
+
+/* nth-child 1-5 */
+ .strip:nth-child(1) .strip_content {
+    background-color: $Block1; 
+    animation:rightA 1s ease-in-out ;
+    @keyframes rightA{
+        0% {
+            -webkit-transform: translate3d (-100%,0, 0);
+                    transform: translate3d(-100%, 0, 0);
+          }
+    }
+} 
+.strip:nth-child(2) .strip_content{
+    background-color: $Block2; 
+    animation:topA 1s ease-in-out ;
+    @keyframes topA{
+        0% {
+            -webkit-transform: translate3d (0,100%, 0);
+                    transform: translate3d(0, 100%, 0);
+          }
+    }
 }
-#block2{
-    @include block($Block2);
+.strip:nth-child(3) .strip_content{
+    background-color: $Block3;
+
+    animation:bottomA 1s ease-in-out ;
+    @keyframes bottomA{
+        0% {
+            -webkit-transform: translate3d (0,-100%, 0);
+                    transform: translate3d(0, -100%, 0);
+          }
+    }
 }
-#block3{
-    @include block($Block3);
+.strip:nth-child(4) .strip_content{
+    background-color: $Block4;
+
+    animation:topA 1.2s ease-in-out ;
+    @keyframes topA{
+        0% {
+            -webkit-transform: translate3d (0,100%, 0);
+                    transform: translate3d(0, 100%, 0);
+          }
+    }
 }
-#block4{
-    @include block($Block4);
-}
-#block5{
-    @include block($Block5);
-}
+.strip:nth-child(5) .strip_content {
+    background-color:$Block5;
+
+    animation:leftA 1s ease-in-out ;
+    @keyframes leftA{
+        0% {
+            -webkit-transform: translate3d (100%,0, 0);
+                    transform: translate3d(100%, 0, 0);
+          }
+    }
+} 

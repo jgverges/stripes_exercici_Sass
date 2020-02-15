@@ -1,21 +1,137 @@
-$animation{
-    right:(transform: translate3d(-100%, 0, 0)) ,
-    left: translate3d(0,-100%,0) ,
-    other:transform: translate3d(-100%, 0, 0)
+
+
+* {
+    box-sizing: border-box;
 }
-$colors:(
-  primary:blue,
-  success:green,
-  danger:red
-);
+body {
+    margin:8px 0px;
+    
+}
+h1 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 1.8em;
+    color: black;
+    z-index: 50;
+}
+.ext {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+}
+.med{
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        text-align: center;
+        overflow: hidden;
+        cursor:pointer;
+               
+        align-items: center;
+        justify-content: center;
+
+}
 .int{
-    background: (map-get($colors,'primary'));
-    &.dos{
-        background: (map-get($colors,'success'));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        text-align: center;         
+ }
+
+    
+.ext .int:before {
+    content: "";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 20vw;
+    height: 100vh;
+    background: white;
+    opacity: 0.05;
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-transform: skew(30deg) scaleY(1) translate(0, 0);
+            transform: skew(30deg) scaleY(1) translate(0, 0);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: hidden;
+    
+  }
+  .int:hover:before {
+    -webkit-transform: skew(0deg) scaleX(8) translate(0, 0);
+    transform: skew(0deg) scaleX(8) translate(0, 0);
+    opacity: 0.2;
+
+  }
+  
+    .med {
+        &:nth-of-type(1) { 
+            background-color: blue; 
+            animation: strip1 1s ;
+        }
+            
+        &:nth-of-type(2) { 
+            background-color: green; 
+            animation: strip2 0.6s 0.5s ease both;
+        }
+            
+        &:nth-of-type(3) { 
+            background-color: red;
+            animation: strip3 0.6s 0.7s ease both;
+        }
+            
+        &:nth-of-type(4) { 
+            background-color: blue;
+            animation: strip4 0.6s 0.9s ease both;
+        }
+            
+        &:nth-of-type(5) { 
+            background-color: green;
+            animation: strip5 0.6s 0.2s ease both;
+        }
     }
-};
-@each $color,$value in $colors{
-    .#{$color}{
-        background: #{$color};
-    }
-}
+    @keyframes strip1 {
+        0% { transform: translate3d(-100%,0, 0); }
+/*         54% { transform: translate3d(0, -22%, 0); }
+        80% { transform: translate3d(0, 6%, 0); }
+        100% { transform: translate3d(0, 0, 0); }
+ */        }
+        @keyframes strip2 {
+        0% { transform: translate3d(0, 100%, 0); }
+/*         54% { transform: translate3d(0, -22%, 0); }
+        80% { transform: translate3d(0, 6%, 0); }
+        100% { transform: translate3d(0, 0, 0); }
+ */        }
+        @keyframes strip3 {
+        0% { transform: translate3d(0, -100%, 0); }
+/*         54% { transform: translate3d(0, -22%, 0); }
+        80% { transform: translate3d(0, 6%, 0); }
+        100% { transform: translate3d(0, 0, 0); }
+ */        }
+        @keyframes strip4 {
+        0% { transform: translate3d(0, 120%, 0); }
+/*         54% { transform: translate3d(0, -22%, 0); }
+        80% { transform: translate3d(0, 6%, 0); }
+        100% { transform: translate3d(0, 0, 0); }
+ */        }
+        @keyframes strip5 {
+        0% { transform: translate3d(100%,0%, 0); }
+/*         54% { transform: translate3d(0, -22%, 0); }
+        80% { transform: translate3d(0, 6%, 0); }
+        100% { transform: translate3d(0, 0, 0); }
+ */        } 
+        
+        
+    
+
+
+
+    

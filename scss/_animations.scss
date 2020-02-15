@@ -1,39 +1,46 @@
-@mixin keyframes($x,$y){
-    0% {
-        -webkit-transform: translate3d (#{$x},#{$y}, 0);
-                transform: translate3d(-100%, 0, 0);
-      }
-}
 
-.bunny {
-    animation: hop 2s ease-in-out infinite, 
-               move 6s ease-out forwards;
-  
-    @keyframes hop { 
-      50%  { transform: translateY(40px); }
-    }
-    @keyframes move { 
-      100% { left: 400px; }
-    }
-  }
-
-
-
-#block1 {
-    animation:rightA 2s ease-in-out infinite;
-    @include keyframes(-100,0){
+.strip:nth-child(1) .strip_content {
+    animation:rightA 1s ease-in-out ;
+    @keyframes rightA{
         0% {
             -webkit-transform: translate3d (-100%,0, 0);
                     transform: translate3d(-100%, 0, 0);
           }
     }
 } 
-#block5 {
-    animation:leftA 2s ease-in-out infinite;
+.strip:nth-child(2) .strip_content{
+    animation:topA 1s ease-in-out ;
+    @keyframes topA{
+        0% {
+            -webkit-transform: translate3d (0,100%, 0);
+                    transform: translate3d(0, 100%, 0);
+          }
+    }
+}
+.strip:nth-child(3) .strip_content{
+    animation:bottomA 1s ease-in-out ;
+    @keyframes bottomA{
+        0% {
+            -webkit-transform: translate3d (0,-100%, 0);
+                    transform: translate3d(0, -100%, 0);
+          }
+    }
+}
+.strip:nth-child(4) .strip_content{
+    animation:topA 1.2s ease-in-out ;
+    @keyframes topA{
+        0% {
+            -webkit-transform: translate3d (0,100%, 0);
+                    transform: translate3d(0, 100%, 0);
+          }
+    }
+}
+.strip:nth-child(5) .strip_content {
+    animation:leftA 1s ease-in-out ;
     @keyframes leftA{
         0% {
-            -webkit-transform: translate3d (200%,0, 0);
-                    transform: translate3d(200%, 0, 0);
+            -webkit-transform: translate3d (100%,0, 0);
+                    transform: translate3d(100%, 0, 0);
           }
     }
 } 
