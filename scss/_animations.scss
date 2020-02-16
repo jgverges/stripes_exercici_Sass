@@ -1,46 +1,10 @@
 
-.strip:nth-child(1) .strip_content {
-    animation:rightA 1s ease-in-out ;
-    @keyframes rightA{
-        0% {
-            -webkit-transform: translate3d (-100%,0, 0);
-                    transform: translate3d(-100%, 0, 0);
-          }
+@mixin strip-animation($duration){
+    $nameA: strip--#{unique-id()};
+    @keyframes #{$nameA}{
+        @content;
     }
-} 
-.strip:nth-child(2) .strip_content{
-    animation:topA 1s ease-in-out ;
-    @keyframes topA{
-        0% {
-            -webkit-transform: translate3d (0,100%, 0);
-                    transform: translate3d(0, 100%, 0);
-          }
-    }
+        animation-name: $nameA;
+        animation-duration: $duration;
+       animation-timing-function:ease-out;
 }
-.strip:nth-child(3) .strip_content{
-    animation:bottomA 1s ease-in-out ;
-    @keyframes bottomA{
-        0% {
-            -webkit-transform: translate3d (0,-100%, 0);
-                    transform: translate3d(0, -100%, 0);
-          }
-    }
-}
-.strip:nth-child(4) .strip_content{
-    animation:topA 1.2s ease-in-out ;
-    @keyframes topA{
-        0% {
-            -webkit-transform: translate3d (0,100%, 0);
-                    transform: translate3d(0, 100%, 0);
-          }
-    }
-}
-.strip:nth-child(5) .strip_content {
-    animation:leftA 1s ease-in-out ;
-    @keyframes leftA{
-        0% {
-            -webkit-transform: translate3d (100%,0, 0);
-                    transform: translate3d(100%, 0, 0);
-          }
-    }
-} 
