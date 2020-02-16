@@ -1,10 +1,11 @@
 
 @mixin strip-animation($duration){
+
     $nameA: strip--#{unique-id()};
     @keyframes #{$nameA}{
         @content;
     }
-        animation-name: $nameA;
-        animation-duration: $duration;
-       animation-timing-function:ease-out;
+    animation-name: $nameA;
+    animation-duration: $duration;
+    animation-timing-function:ease-out;
 }
