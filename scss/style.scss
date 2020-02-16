@@ -79,7 +79,7 @@ h1{
 }
 
 
-/* nth-child 1-5 */
+/* strips 1-5: nth-child 1-5 */
 .strip:nth-child(1) .strip_content {
     background-color: $Block1; 
     @include strip-animation(0.5s){
